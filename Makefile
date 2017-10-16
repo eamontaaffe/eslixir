@@ -1,6 +1,7 @@
+TEST=7379
+
 test-start:
-	docker run --name redis-test -d redis --p 6379
+	redis-server --port $(TEST) --daemonize yes
 
 test-stop:
-	docker stop redis-test
-	docker rm redis-test
+	redis-cli -p $(TEST) shutdown
