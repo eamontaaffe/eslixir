@@ -5,11 +5,12 @@ defmodule Eslixir.Application do
 
   use Application
 
+  import Supervisor.Spec, only: [worker: 2]
+
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: Eslixir.Worker.start_link(arg)
-      # {Eslixir.Worker, arg},
+      worker(Redix, [[], [name: :redix]])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
