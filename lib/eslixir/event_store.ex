@@ -20,7 +20,7 @@ defmodule Eslixir.EventStore do
   end
   def commit(uuid, event), do: commit(uuid, [event])
 
-  def load(uuid), do
+  def load(uuid) do
     events =
       @event_store.load(uuid)
       |> Enum.map(&EventSerializer.deserialize/1)
