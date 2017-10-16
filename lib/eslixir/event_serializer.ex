@@ -1,4 +1,4 @@
-defmodule EventSerializer do
+defmodule Eslixir.EventSerializer do
   def serialize(event) do
     event
     |> Map.from_struct
